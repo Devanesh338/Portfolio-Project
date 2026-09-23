@@ -2,7 +2,7 @@ import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { Button } from "@/components/Button";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import profileImg from "../assets/profile.jpeg";
+import profileImg from "../assets/profile.png";
 
 export const Hero = () => {
   return (
