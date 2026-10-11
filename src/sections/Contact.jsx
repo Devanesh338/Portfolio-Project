@@ -16,9 +16,8 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { heroData } from "@/data/portfolioData";
 
 export const Contact = () => {
-  const [copied, setCopied] = useState(false);
   const [copiedMessage, setCopiedMessage] = useState(false);
-  const [inquiryType, setInquiryType] = useState("Internship Opportunity");
+  const [inquiryType] = useState("Internship Opportunity");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,12 +28,6 @@ export const Contact = () => {
   const [transmitted, setTransmitted] = useState(false);
 
   const emailRecipient = heroData.email || "devaneshmanikandan@gmail.com";
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(emailRecipient);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
 
   const constructPayload = () => {
     const subjectLine = encodeURIComponent(
@@ -79,13 +72,6 @@ export const Contact = () => {
     setCopiedMessage(true);
     setTimeout(() => setCopiedMessage(false), 2500);
   };
-
-  const categories = [
-    "Internship Opportunity",
-    "Technical Collaboration",
-    "Consulting & Architecture",
-    "General Inquiry"
-  ];
 
   const payload = constructPayload();
 
@@ -168,44 +154,16 @@ export const Contact = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
-                <div className="flex flex-wrap items-center gap-2">
-                  <a
-                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${emailRecipient}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-primary text-primary-foreground text-xs font-mono font-semibold hover:bg-primary/90 transition-colors shadow-sm"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    <span>Send via Gmail</span>
-                  </a>
-                  <button
-                    type="button"
-                    onClick={handleCopyEmail}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-subtle hover:bg-white/10 border border-white/10 text-xs font-mono text-foreground transition-colors cursor-pointer"
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-primary" />
-                        <span className="text-primary font-semibold">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5 text-muted-foreground" />
-                        <span>Copy Address</span>
-                      </>
-                    )}
-                  </button>
-                  <a
-                    href={`mailto:${emailRecipient}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-subtle hover:bg-white/10 border border-white/10 text-muted-foreground hover:text-foreground text-xs font-mono transition-colors"
-                  >
-                    <span>Mail App</span>
-                  </a>
-                </div>
-                <span className="text-[11px] font-mono text-muted-foreground">
-                  SLA: &lt;12h
-                </span>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${emailRecipient}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-primary text-primary-foreground text-xs font-mono font-semibold hover:bg-primary/90 transition-colors shadow-sm"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Send via Gmail</span>
+                </a>
               </div>
             </div>
 
@@ -296,9 +254,6 @@ export const Contact = () => {
                     </span>
                   </div>
                 </div>
-                <span className="text-[11px] font-mono text-muted-foreground">
-                  Updated 2025 · Verified
-                </span>
               </div>
               <div className="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
                 <a
@@ -402,24 +357,12 @@ export const Contact = () => {
 
                 {/* Category Chips */}
                 <div>
-                  <label className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2.5">
-                    01 // Select Inquiry Category
+                  <label className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-2">
+                    01 // Inquiry Category
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {categories.map((cat) => (
-                      <button
-                        key={cat}
-                        type="button"
-                        onClick={() => setInquiryType(cat)}
-                        className={`p-2.5 text-center rounded-lg border text-xs font-display font-medium transition-all cursor-pointer ${
-                          inquiryType === cat
-                            ? "border-primary bg-primary/15 text-primary shadow-sm"
-                            : "bg-surface-subtle border-white/10 hover:border-white/20 text-muted-foreground hover:text-foreground"
-                        }`}
-                      >
-                        {cat}
-                      </button>
-                    ))}
+                  <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-primary bg-primary/15 text-primary text-xs font-display font-medium shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    <span>Internship Opportunity</span>
                   </div>
                 </div>
 
