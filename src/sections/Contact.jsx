@@ -251,7 +251,7 @@ export const Contact = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-4 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center">
                 <a
                   href={heroData.resumeLink}
                   target="_blank"
@@ -260,15 +260,6 @@ export const Contact = () => {
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Download Resume (PDF)</span>
-                </a>
-                <a
-                  href={heroData.resumeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-subtle hover:bg-white/10 border border-white/10 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <ExternalLink className="w-3 h-3" />
-                  <span>Drive Mirror</span>
                 </a>
               </div>
             </div>
