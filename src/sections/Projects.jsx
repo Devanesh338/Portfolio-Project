@@ -114,7 +114,7 @@ export const Projects = () => {
       <div className="absolute inset-0 grid-pattern pointer-events-none opacity-30 -z-10" />
 
       {/* Pinned Viewport Container */}
-      <div className="h-screen w-full flex flex-col justify-between py-6 md:py-10 relative overflow-hidden">
+      <div className="h-screen w-full flex flex-col justify-between pt-24 pb-6 md:pt-28 md:pb-8 relative overflow-hidden">
         {/* Top Header Bar */}
         <div className="max-w-7xl mx-auto px-6 w-full flex flex-col sm:flex-row sm:items-end justify-between gap-4 shrink-0 mb-4 md:mb-6">
           <div className="text-left">
@@ -165,7 +165,7 @@ export const Projects = () => {
               return (
                 <article
                   key={idx}
-                  className="w-[85vw] sm:w-[600px] md:w-[720px] lg:w-[840px] max-w-[90vw] h-[64vh] md:h-[68vh] rounded-2xl md:rounded-3xl bg-surface/90 backdrop-blur-xl border border-white/15 hover:border-primary/40 transition-all duration-300 relative group flex flex-col justify-between p-5 sm:p-7 md:p-8 shadow-2xl text-left overflow-y-auto custom-scroll shrink-0"
+                  className="w-[85vw] sm:w-[600px] md:w-[720px] lg:w-[840px] max-w-[90vw] h-[56vh] md:h-[60vh] rounded-2xl md:rounded-3xl bg-surface/90 backdrop-blur-xl border border-white/15 hover:border-primary/40 transition-all duration-300 relative group flex flex-col justify-between p-5 sm:p-7 md:p-8 shadow-2xl text-left overflow-y-auto custom-scroll shrink-0"
                 >
                   {/* Ambient Glow Accent */}
                   <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none group-hover:bg-primary/10 transition-colors" />
@@ -306,7 +306,7 @@ export const Projects = () => {
             })}
 
             {/* Seamless Transition Card to Next Section */}
-            <div className="w-[300px] sm:w-[360px] h-[64vh] md:h-[68vh] rounded-2xl md:rounded-3xl bg-surface/50 border border-dashed border-white/20 p-8 flex flex-col justify-between items-center text-center shrink-0">
+            <div className="w-[300px] sm:w-[360px] h-[56vh] md:h-[60vh] rounded-2xl md:rounded-3xl bg-surface/50 border border-dashed border-white/20 p-8 flex flex-col justify-between items-center text-center shrink-0">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mt-8">
                 <Sparkles className="w-6 h-6 animate-pulse" />
               </div>
