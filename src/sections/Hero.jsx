@@ -138,20 +138,6 @@ export const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90 pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80 pointer-events-none" />
 
-                {/* Top Floating Status Badge */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/85 backdrop-blur-md border border-white/15 text-xs font-mono shadow-lg">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                    </span>
-                    <span className="text-foreground text-[11px] font-medium tracking-wide">Open for AI/ML Roles · IST / Remote</span>
-                  </div>
-                  <span className="font-mono text-[10px] text-primary font-semibold bg-background/85 backdrop-blur-md border border-primary/30 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                    Active
-                  </span>
-                </div>
-
                 {/* Bottom Portrait Overlay Bar */}
                 <div className="absolute bottom-4 left-4 right-4 space-y-2 pointer-events-auto">
                   <div className="flex items-center justify-between text-xs font-mono text-muted-foreground bg-surface/90 backdrop-blur-md px-3.5 py-2 rounded-lg border border-white/10">
@@ -166,36 +152,6 @@ export const Hero = () => {
                       AI Systems Engineer · Agentic AI · Generative AI &amp; MILP
                     </p>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Compact Agentic Telemetry & System Status Footer Card */}
-            <div className="bg-surface rounded-xl border border-white/10 p-4 space-y-3 shadow-lg">
-              <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="font-mono text-xs font-semibold text-foreground uppercase tracking-wider">
-                    Telemetry &amp; Solvers
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 font-mono text-[11px]">
-                  <span className="text-emerald-400 font-medium">● ONLINE</span>
-                  <span className="text-primary font-medium">184ms LATENCY</span>
-                </div>
-              </div>
-              <div className="grid grid-cols-3 gap-2 font-mono text-[10px] text-center">
-                <div className="bg-surface-subtle p-2 rounded border border-white/5">
-                  <div className="text-muted-foreground">PIPELINE</div>
-                  <div className="text-foreground font-semibold mt-0.5">LangGraph + MILP</div>
-                </div>
-                <div className="bg-surface-subtle p-2 rounded border border-white/5">
-                  <div className="text-muted-foreground">PRECISION</div>
-                  <div className="text-primary font-semibold mt-0.5">99.4% Validated</div>
-                </div>
-                <div className="bg-surface-subtle p-2 rounded border border-white/5">
-                  <div className="text-muted-foreground">SOLVER TIME</div>
-                  <div className="text-foreground font-semibold mt-0.5">14.2ms (PuLP)</div>
                 </div>
               </div>
             </div>

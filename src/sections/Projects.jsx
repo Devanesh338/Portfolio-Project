@@ -25,29 +25,6 @@ export const Projects = () => {
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl">
             In-depth breakdown of multi-agent architectures, mathematical solvers, and retrieval-augmented generation pipelines built for determinism, auditable states, and sub-second latencies.
           </p>
-
-          {/* Quick Metrics Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-8">
-            <div className="p-4 rounded-xl bg-surface border border-white/10 flex flex-col justify-between">
-              <span className="font-mono text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">Systems Ready</span>
-              <span className="font-display font-bold text-xl sm:text-2xl text-foreground">3 Flagship Systems</span>
-            </div>
-            <div className="p-4 rounded-xl bg-surface border border-white/10 flex flex-col justify-between">
-              <span className="font-mono text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">Reasoning Engine</span>
-              <span className="font-display font-bold text-xl sm:text-2xl text-primary">100% Deterministic</span>
-              <span className="font-mono text-[10px] text-muted-foreground mt-0.5">via PuLP MILP Solver</span>
-            </div>
-            <div className="p-4 rounded-xl bg-surface border border-white/10 flex flex-col justify-between">
-              <span className="font-mono text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">Router Latency</span>
-              <span className="font-display font-bold text-xl sm:text-2xl text-foreground">Sub-200ms</span>
-              <span className="font-mono text-[10px] text-muted-foreground mt-0.5">Semantic Routing Gate</span>
-            </div>
-            <div className="p-4 rounded-xl bg-surface border border-white/10 flex flex-col justify-between">
-              <span className="font-mono text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">Tool Interface</span>
-              <span className="font-display font-bold text-xl sm:text-2xl text-foreground">MCP Protocol</span>
-              <span className="font-mono text-[10px] text-muted-foreground mt-0.5">Decoupled Tool Bus</span>
-            </div>
-          </div>
         </div>
 
         {/* Projects Showcase Articles */}
