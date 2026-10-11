@@ -1,144 +1,149 @@
-import { Code2, Sparkles, Brain, LineChart, Database } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
-
-const skillCategories = [
-  {
-    title: "Programming Languages",
-    icon: Code2,
-    skills: [
-      { name: "Python", level: 90 },
-      { name: "SQL", level: 85 },
-      { name: "C", level: 75 },
-    ],
-  },
-  {
-    title: "Generative AI",
-    icon: Sparkles,
-    skills: [
-      { name: "RAG & Semantic Search", level: 90 },
-      { name: "LangGraph", level: 85 },
-      { name: "Multi-Agent Systems", level: 85 },
-      { name: "Prompt Engineering", level: 95 },
-      { name: "Model Context Protocol", level: 80 },
-    ],
-  },
-  {
-    title: "Machine Learning",
-    icon: Brain,
-    skills: [
-      { name: "Supervised Learning", level: 85 },
-      { name: "Model Evaluation", level: 85 },
-      { name: "Feature Engineering", level: 80 },
-    ],
-  },
-  {
-    title: "Analytics & BI",
-    icon: LineChart,
-    skills: [
-      { name: "Power BI & DAX", level: 90 },
-      { name: "Excel", level: 90 },
-      { name: "Power Query", level: 85 },
-      { name: "pandas & NumPy", level: 85 },
-    ],
-  },
-  {
-    title: "Development Tools",
-    icon: Database,
-    skills: [
-      { name: "GitHub", level: 90 },
-      { name: "Streamlit", level: 85 },
-      { name: "Vector Databases", level: 85 },
-    ],
-  },
-];
-
-const SkillBar = ({ name, level, isVisible }) => {
-  return (
-    <div className="mb-6 last:mb-0">
-      <div className="flex justify-between items-end mb-2">
-        <span className="font-medium text-foreground">{name}</span>
-        <span className="text-sm text-primary font-semibold">{level}%</span>
-      </div>
-      <div className="h-1.5 w-full bg-foreground/10 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] rounded-full transition-all duration-1000 ease-out animate-gradient"
-          style={{ 
-            width: isVisible ? `${level}%` : "0%",
-            transitionDelay: "200ms"
-          }}
-        />
-      </div>
-    </div>
-  );
-};
+import { CheckCircle2 } from "lucide-react";
+import { skillCategoriesData as skillCategories } from "@/data/portfolioData";
 
 export const Skills = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  // Enriched domain metadata mapping strictly matching Stitch Screen 3
+  const domainMetadata = [
+    {
+      code: "01 // INTELLIGENCE",
+      focus: "Autonomous agent loops, structured generation, dense semantic retrieval.",
+      description: "Engineering resilient agentic workflows with strict schema constraints, prompt-chaining topologies, and dense retrieval architectures.",
+      highlight: "Hallucination Suppression & Guardrail Ensembles",
+      colSpan: "lg:col-span-2",
+    },
+    {
+      code: "02 // ORCHESTRATION",
+      focus: "Cyclic computational graphs, multi-agent buses.",
+      description: "State-machine orchestration, cyclical flow graphs, and standardized tool protocols for multi-agent interoperability.",
+      highlight: "Decoupled Tool Execution & Cyclic State Machines",
+      colSpan: "lg:col-span-1",
+    },
+    {
+      code: "03 // SYSTEMS",
+      focus: "Asynchronous APIs, microservices, deterministic business logic.",
+      description: "Low-latency async backends, validated data transfer contracts, and deterministic execution environments.",
+      highlight: "Sub-50ms API Latency & Typed Schemas",
+      colSpan: "lg:col-span-1",
+    },
+    {
+      code: "04 // DATA INFRASTRUCTURE",
+      focus: "High-dimensional embeddings, relational databases, data manipulation pipelines.",
+      description: "High-dimensional vector indexing, hybrid retrieval mechanisms, and relational consistency for state management.",
+      highlight: "Cosine & MMR Vector Indexing",
+      colSpan: "lg:col-span-1",
+    },
+    {
+      code: "05 // MODELING",
+      focus: "Statistical evaluation, empirical benchmarking, feature pipelines.",
+      description: "Quantitative validation metrics, rigorous feature transformation pipelines, and empirical model benchmarking.",
+      highlight: "Stratified Cross-Validation & Metric Tracking",
+      colSpan: "lg:col-span-1",
+    },
+    {
+      code: "06 // MATHEMATICAL OPTIMIZATION",
+      focus: "Exact mathematical solvers, constraint satisfaction, enterprise business intelligence.",
+      description: "Provable Mixed-Integer Linear Programming models combining symbolic constraints with interactive analytical intelligence dashboards.",
+      highlight: "Simplex / Branch-and-Bound Exact Solvers",
+      colSpan: "lg:col-span-2",
+    },
+    {
+      code: "07 // TOOLING & RUNTIMES",
+      focus: "Source control, interactive prototyping, developer toolchains.",
+      description: "Reproducible development environments, interactive engineering telemetry dashboards, and modern Unix command-line toolchains.",
+      highlight: "Automated CI/CD & Sandboxed Tool Runtimes",
+      colSpan: "lg:col-span-1",
+    },
+  ];
 
   return (
-    <section id="skills" ref={sectionRef} className="py-32 relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mb-16">
-          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
-            Expertise
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-            Technical{" "}
-            <span className="font-serif italic font-normal text-white">
-              Skills.
+    <section id="skills" className="py-24 border-t border-white/10 relative overflow-hidden text-left">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 grid-pattern pointer-events-none opacity-30 -z-10" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="max-w-4xl mb-12">
+          {/* Status Badge */}
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface border border-white/10 text-xs font-mono tracking-widest text-primary mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary inline-block animate-pulse" />
+            <span className="font-semibold uppercase tracking-wider text-[11px]">
+              Technical Taxonomy &amp; Expertise
             </span>
+          </div>
+
+          {/* Main Title */}
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight mb-5">
+            Specialized Capabilities Across the Modern AI Stack
           </h2>
-          <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            Technologies and tools I use to build intelligent applications, machine learning solutions, and data-driven systems.
-          </p>
+
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, idx) => (
-            <div
-              key={idx}
-              className="glass-strong p-8 rounded-3xl border border-primary/20 hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(32,178,166,0.12)] animate-fade-in flex flex-col"
-              style={{ animationDelay: `${(idx + 1) * 150}ms` }}
-            >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
-                  <category.icon className="w-6 h-6 text-primary" />
+        {/* Skill Domain Architecture: Asymmetric Bento / Multi-column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {skillCategories.map((category, idx) => {
+            const meta = domainMetadata[idx] || {
+              code: `0${idx + 1} // DOMAIN`,
+              focus: "Specialized engineering capability.",
+              description: "Production implementations and verified tooling.",
+              highlight: "Production Ready Architecture",
+              colSpan: "lg:col-span-1",
+            };
+
+            const IconComponent = category.icon;
+
+            return (
+              <div
+                key={idx}
+                className={`${meta.colSpan} group relative p-7 rounded-xl bg-surface border border-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-xl hover:-translate-y-0.5`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-mono text-xs tracking-widest text-primary font-semibold">
+                      {meta.code}
+                    </span>
+                    <div className="w-8 h-8 rounded-lg bg-surface-subtle border border-white/10 flex items-center justify-center text-muted-foreground group-hover:text-primary transition-colors">
+                      <IconComponent className="w-4 h-4" />
+                    </div>
+                  </div>
+
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground mb-2">
+                    {category.title}
+                  </h3>
+
+                  <div className="font-mono text-xs text-muted-foreground mb-4 tracking-wide font-medium">
+                    {meta.focus}
+                  </div>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    {meta.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  {category.title}
-                </h3>
+
+                <div>
+                  {/* Skill Badges */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {category.skills.map((skill, sIdx) => (
+                      <span
+                        key={sIdx}
+                        className="font-mono text-xs font-medium px-2.5 py-1 rounded bg-surface-subtle border border-white/10 text-foreground hover:border-primary/40 transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Architectural Highlight */}
+                  <div className="pt-4 border-t border-white/10 flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <span className="font-mono text-xs text-muted-foreground">Highlight:</span>
+                    <span className="font-mono text-xs font-semibold text-primary truncate">
+                      {meta.highlight}
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col flex-grow justify-center">
-                {category.skills.map((skill, skillIdx) => (
-                  <SkillBar
-                    key={skillIdx}
-                    name={skill.name}
-                    level={skill.level}
-                    isVisible={isVisible}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { Download } from "lucide-react";
+import React from "react";
 
 export const AnimatedBorderButton = ({ children, href, className = "", ...props }) => {
   const Component = href ? "a" : "button";

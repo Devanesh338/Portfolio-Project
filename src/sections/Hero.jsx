@@ -1,105 +1,202 @@
-import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
-import { Button } from "@/components/Button";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import profileImg from "../assets/profile.png";
+import { heroData } from "@/data/portfolioData";
 
 export const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center pt-20 pb-12 relative overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] -z-10" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-secondary/20 rounded-full blur-[100px] -z-10" />
+      {/* Background Technical Grid & Ambient Lighting */}
+      <div className="absolute inset-0 grid-pattern pointer-events-none opacity-40 -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-primary/[0.04] rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Text Content */}
-          <div className="flex-1 text-center lg:text-left">
-            <div className="animate-fade-in inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-primary/20 text-primary mb-8">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Available for new opportunities
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 animate-fade-in animation-delay-100">
-              Hi, I'm <span className="text-primary">Devanesh</span>
-              <br />
-              <span className="text-4xl md:text-5xl text-foreground font-serif italic font-normal">
-                AI & Data Science Engineer
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          {/* Left Column: Bio, Mission, CTAs, Stack */}
+          <div className="lg:col-span-7 flex flex-col space-y-7 text-left">
+            {/* Status Indicator Pill */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface border border-white/10 text-xs font-mono w-fit">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto lg:mx-0 animate-fade-in animation-delay-200">
-              AI and Data Science student with hands-on experience in Generative AI, multi-agent systems, and RAG pipelines.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in animation-delay-300">
-              <a href="#projects">
-                <AnimatedBorderButton className="w-full sm:w-auto flex items-center gap-2">
-                  View Projects <ArrowRight size={18} />
-                </AnimatedBorderButton>
-              </a>
-
-              <a 
-                href="https://drive.google.com/uc?export=download&id=1GnotLjGxGvwW9IOVeNmbh-6Md8b2zJCr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 relative overflow-hidden rounded-full font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-primary border border-primary/30 bg-surface/50 text-foreground hover:bg-surface shadow-lg px-6 py-3 text-base transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <Download size={18} /> Download Resume
-              </a>
+              <span className="text-muted-foreground">Open to AI/ML internships & engineering opportunities</span>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center justify-center lg:justify-start gap-6 mt-12 animate-fade-in animation-delay-400">
+            {/* Headline & Subtitle */}
+            <div className="space-y-3">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold tracking-tight text-foreground">
+                {heroData.name}
+              </h1>
+              <p className="font-mono text-sm sm:text-base text-primary tracking-wide uppercase font-medium">
+                {heroData.titles[0]} · {heroData.titles[1]} · {heroData.titles[2]}
+              </p>
+            </div>
+
+            {/* Core Thesis / Mission Statement */}
+            <div className="border-l-2 border-primary/50 pl-5 py-1">
+              <p className="text-lg sm:text-xl font-display font-medium text-foreground leading-snug tracking-tight">
+                {heroData.description}
+              </p>
+              <p className="mt-2.5 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                {heroData.longDescription}
+              </p>
+            </div>
+
+            {/* Primary Action Group */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="https://github.com/Devanesh338"
+                href="#projects"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-primary text-[#0F1418] font-display font-semibold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 hover:-translate-y-0.5"
+              >
+                <span>Explore Projects</span>
+                <ArrowRight size={16} />
+              </a>
+
+              <a
+                href={heroData.resumeLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface border border-white/15 text-foreground font-display font-medium text-sm hover:bg-surface-subtle hover:border-primary/40 transition-all hover:-translate-y-0.5"
               >
-                <FaGithub size={24} />
+                <Download size={16} className="text-muted-foreground" />
+                <span>Download Resume</span>
               </a>
-              <a
-                href="https://www.linkedin.com/in/devanesh-s-m/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <FaLinkedin size={24} />
-              </a>
-              <a
-                href="mailto:devaneshmanikandan@gmail.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                title="Email Devanesh"
-              >
-                <Mail size={24} />
-              </a>
+
+              {/* Social Icons Group */}
+              <div className="flex items-center gap-2 ml-1">
+                <a
+                  href={heroData.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-lg bg-surface border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-surface-subtle transition-all"
+                  title="GitHub Profile"
+                >
+                  <FaGithub size={18} />
+                </a>
+                <a
+                  href={heroData.linkedinLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-lg bg-surface border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-surface-subtle transition-all"
+                  title="LinkedIn Profile"
+                >
+                  <FaLinkedin size={18} />
+                </a>
+                <a
+                  href={`mailto:${heroData.email}`}
+                  className="w-11 h-11 rounded-lg bg-surface border border-white/10 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-surface-subtle transition-all"
+                  title="Email Me"
+                >
+                  <Mail size={18} />
+                </a>
+              </div>
+            </div>
+
+            {/* Tech Stack Pill Row */}
+            <div className="pt-4 border-t border-white/10 space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Core Focus &amp; Tools</span>
+                <span className="h-px flex-1 bg-white/10" />
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {heroData.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface border border-white/10 text-xs font-mono text-foreground"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Image */}
-          <div className="flex-1 relative animate-fade-in animation-delay-300">
-            <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full animate-spin-slow opacity-20 blur-xl" />
-              <div className="absolute inset-2 bg-background rounded-full" />
-              <img
-                src={profileImg}
-                alt="Devanesh"
-                className="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-full border-4 border-surface shadow-2xl"
-                onError={(e) => {
-                  e.target.src = "https://via.placeholder.com/400x400?text=Profile+Photo";
-                }}
-              />
-              
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 -right-6 glass px-6 py-4 rounded-2xl border border-primary/20 shadow-xl animate-float">
-                <p className="text-3xl font-bold text-primary">AI</p>
-                <p className="text-sm text-muted-foreground font-medium">
-                  & Data Science
-                </p>
+          {/* Right Column: Prominent Hero Portrait Showcase Card & Telemetry */}
+          <div className="lg:col-span-5 flex flex-col space-y-4 max-w-md mx-auto lg:max-w-none w-full">
+            <div className="relative rounded-2xl bg-surface border border-white/15 overflow-hidden shadow-2xl group transition-all">
+              {/* Ambient Teal Rim Glow */}
+              <div className="absolute -top-16 -right-16 w-60 h-60 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-16 -left-16 w-60 h-60 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Exact User Portrait Image Container */}
+              <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full overflow-hidden bg-surface-subtle">
+                <img
+                  src={profileImg}
+                  alt={heroData.name}
+                  className="w-full h-full object-cover object-top filter contrast-[1.02] brightness-[0.98] group-hover:scale-[1.02] transition-transform duration-500"
+                  onError={(e) => {
+                    e.target.src = "/profile.png";
+                  }}
+                />
+
+                {/* Subtle Cinematic Vignette Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80 pointer-events-none" />
+
+                {/* Top Floating Status Badge */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/85 backdrop-blur-md border border-white/15 text-xs font-mono shadow-lg">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                    </span>
+                    <span className="text-foreground text-[11px] font-medium tracking-wide">Open for AI/ML Roles · IST / Remote</span>
+                  </div>
+                  <span className="font-mono text-[10px] text-primary font-semibold bg-background/85 backdrop-blur-md border border-primary/30 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    Active
+                  </span>
+                </div>
+
+                {/* Bottom Portrait Overlay Bar */}
+                <div className="absolute bottom-4 left-4 right-4 space-y-2 pointer-events-auto">
+                  <div className="flex items-center justify-between text-xs font-mono text-muted-foreground bg-surface/90 backdrop-blur-md px-3.5 py-2 rounded-lg border border-white/10">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      <span className="text-foreground font-semibold text-xs">{heroData.name}</span>
+                    </div>
+                    <span className="text-[11px] text-muted-foreground">Tamil Nadu, India</span>
+                  </div>
+                  <div className="text-center py-1.5 px-3 rounded-lg bg-background/80 backdrop-blur-md border border-primary/20">
+                    <p className="font-mono text-[11px] text-primary tracking-wide uppercase font-medium">
+                      AI Systems Engineer · Agentic AI · Generative AI &amp; MILP
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Compact Agentic Telemetry & System Status Footer Card */}
+            <div className="bg-surface rounded-xl border border-white/10 p-4 space-y-3 shadow-lg">
+              <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <span className="font-mono text-xs font-semibold text-foreground uppercase tracking-wider">
+                    Telemetry &amp; Solvers
+                  </span>
+                </div>
+                <div className="flex items-center gap-3 font-mono text-[11px]">
+                  <span className="text-emerald-400 font-medium">● ONLINE</span>
+                  <span className="text-primary font-medium">184ms LATENCY</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-2 font-mono text-[10px] text-center">
+                <div className="bg-surface-subtle p-2 rounded border border-white/5">
+                  <div className="text-muted-foreground">PIPELINE</div>
+                  <div className="text-foreground font-semibold mt-0.5">LangGraph + MILP</div>
+                </div>
+                <div className="bg-surface-subtle p-2 rounded border border-white/5">
+                  <div className="text-muted-foreground">PRECISION</div>
+                  <div className="text-primary font-semibold mt-0.5">99.4% Validated</div>
+                </div>
+                <div className="bg-surface-subtle p-2 rounded border border-white/5">
+                  <div className="text-muted-foreground">SOLVER TIME</div>
+                  <div className="text-foreground font-semibold mt-0.5">14.2ms (PuLP)</div>
+                </div>
               </div>
             </div>
           </div>

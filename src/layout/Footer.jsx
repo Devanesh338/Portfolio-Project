@@ -1,51 +1,59 @@
-import { Mail } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { heroData } from "@/data/portfolioData";
 
 export const Footer = () => {
   return (
-    <footer className="py-8 border-t border-primary/20 bg-background/50 backdrop-blur-sm">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-center md:text-left">
-            <a
-              href="#"
-              className="text-xl font-bold tracking-tight whitespace-nowrap flex-shrink-0 pr-2 hover:text-primary transition-colors"
-            >
-              Devanesh<span className="text-primary">.</span>
-            </a>
-            <p className="text-sm text-muted-foreground mt-2">
-              Building intelligent applications with AI, Machine Learning, Generative AI and Data.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/Devanesh338"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all duration-300"
-            >
-              <FaGithub size={20} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/devanesh-s-m/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all duration-300"
-            >
-              <FaLinkedin size={20} />
-            </a>
-            <a
-              href="mailto:devaneshmanikandan@gmail.com"
-              className="w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-primary hover:scale-110 transition-all duration-300"
-            >
-              <Mail size={20} />
-            </a>
-          </div>
+    <footer className="w-full bg-surface-subtle/50 border-t border-white/10 text-xs font-body text-muted-foreground">
+      <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Identity & Copyright */}
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+          <span className="font-display font-bold text-sm text-foreground flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            DS · Devanesh S M
+          </span>
+          <span className="hidden sm:inline text-white/20">•</span>
+          <p className="font-mono text-xs text-muted-foreground">
+            © 2026 Devanesh S M. Autonomous Systems &amp; AI Architecture.
+          </p>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-primary/10 text-center text-sm text-muted-foreground flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2026 Devanesh. All rights reserved.</p>
+        {/* Footer Navigation Links */}
+        <div className="flex items-center gap-6 font-mono text-xs">
+          <a
+            href={heroData.githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href={heroData.linkedinLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="#projects"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            Projects
+          </a>
+          <a
+            href="#skills"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            Skills
+          </a>
+          <a
+            href={heroData.resumeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            Resume
+          </a>
         </div>
       </div>
     </footer>

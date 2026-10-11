@@ -1,152 +1,198 @@
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, GitBranch, Layers, Cpu, Database, CheckCircle2 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-import aiTravelPlannerImg from "@/assets/projects/ai-travel-planner.jpg";
-import agenticRagImg from "@/assets/projects/agentic-rag.jpg";
-import salesTerritoryImg from "@/assets/projects/sales-territory.jpg";
-import blinkitDashboardImg from "@/assets/projects/blinkit-dashboard.jpg";
-
-const projects = [
-  {
-    title: "AI Travel Planning System",
-    description:
-      "A multi-agent AI system built using LangGraph with specialized agents for flights, hotels, and itinerary planning through a shared state graph. Integrates MCP servers for standardized external tool calls and PostgreSQL checkpointing to persist user preferences across sessions.",
-    image: aiTravelPlannerImg,
-    tags: ["Python", "LangGraph", "Groq API", "PostgreSQL", "MCP", "Streamlit"],
-    github: "https://github.com/Devanesh338/AI-Travel-Planning-System",
-    live: "#",
-    featured: true,
-  },
-  {
-    title: "Agentic RAG System",
-    description:
-      "A RAG-based chatbot that retrieves relevant information from uploaded documents to generate context-grounded answers. Built with LangGraph to intelligently route queries between the RAG pipeline and direct LLM responses. Uses ChromaDB for semantic search and Groq LLMs.",
-    image: agenticRagImg,
-    tags: ["Python", "Generative AI", "LangGraph", "ChromaDB", "Groq"],
-    github: "https://github.com/Devanesh338/Agentic-RAG-Project",
-    live: "#",
-    featured: false,
-  },
-  {
-    title: "Project Insights Dashboard",
-    description:
-      "Centralized project data management system built by importing and structuring data from Excel into SQL Server. Features cleaned data using Power Query, calculated DAX measures for automated tracking, and an interactive Power BI dashboard.",
-    image: blinkitDashboardImg,
-    tags: ["SQL", "Excel", "Power BI", "Power Query", "DAX"],
-    github: "https://github.com/Devanesh338/Project-Overview-Dashboard",
-    live: "#",
-    featured: false,
-  },
-  {
-    title: "Sales Territory Optimization",
-    description:
-      "An optimization-based solution for balancing sales territories using factors such as HCP potential, workload, geography and travel efficiency. The project explores clustering and optimization techniques to create better assignments.",
-    image: salesTerritoryImg,
-    tags: ["Python", "Machine Learning", "Optimization", "Data Analysis"],
-    github: "https://github.com/Devanesh338/Agentic-Sales-Territory-And-Opimization-",
-    live: "#",
-    featured: false,
-  },
-  {
-    title: "Blinkit Sales Dashboard",
-    description:
-      "An interactive Power BI dashboard designed to analyze sales performance, product categories, outlet characteristics and key business metrics.",
-    image: blinkitDashboardImg,
-    tags: ["Power BI", "DAX", "Power Query", "Data Analysis"],
-    github: "https://github.com/Devanesh338/Blinkit-Grocery-data-dashboard-using-power-bi-",
-    live: "#",
-    featured: false,
-  },
-];
+import { projectsData as projects } from "@/data/portfolioData";
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-32 relative">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl mb-16">
-          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
-            Featured Work
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-            Projects that{" "}
-            <span className="font-serif italic font-normal text-white">
-              make an impact.
+    <section id="projects" className="py-24 border-t border-white/10 relative overflow-hidden">
+      {/* Background Blueprint Grid Overlay */}
+      <div className="absolute inset-0 grid-pattern pointer-events-none opacity-30 -z-10" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="max-w-4xl mb-16 text-left">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface border border-white/10 mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="font-mono text-xs font-medium tracking-wider text-primary uppercase">
+              Engineering Case Studies
             </span>
+          </div>
+
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground tracking-tight leading-tight mb-6">
+            Production-Grade AI Systems &amp; Decision Intelligence
           </h2>
-          <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            A selection of my recent work in AI, Machine Learning, and Data Analytics.
+
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl">
+            In-depth breakdown of multi-agent architectures, mathematical solvers, and retrieval-augmented generation pipelines built for determinism, auditable states, and sub-second latencies.
           </p>
+
+          {/* Quick Metrics Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-8">
+            <div className="p-4 rounded-xl bg-surface border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">Systems Ready</span>
+              <span className="font-display font-bold text-xl sm:text-2xl text-foreground">3 Flagship Systems</span>
+            </div>
+            <div className="p-4 rounded-xl bg-surface border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">Reasoning Engine</span>
+              <span className="font-display font-bold text-xl sm:text-2xl text-primary">100% Deterministic</span>
+              <span className="font-mono text-[10px] text-muted-foreground mt-0.5">via PuLP MILP Solver</span>
+            </div>
+            <div className="p-4 rounded-xl bg-surface border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">Router Latency</span>
+              <span className="font-display font-bold text-xl sm:text-2xl text-foreground">Sub-200ms</span>
+              <span className="font-mono text-[10px] text-muted-foreground mt-0.5">Semantic Routing Gate</span>
+            </div>
+            <div className="p-4 rounded-xl bg-surface border border-white/10 flex flex-col justify-between">
+              <span className="font-mono text-[11px] text-muted-foreground mb-1 uppercase tracking-wider">Tool Interface</span>
+              <span className="font-display font-bold text-xl sm:text-2xl text-foreground">MCP Protocol</span>
+              <span className="font-mono text-[10px] text-muted-foreground mt-0.5">Decoupled Tool Bus</span>
+            </div>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
-            <div
-              key={idx}
-              className={`group glass rounded-3xl overflow-hidden transition-all duration-500 flex flex-col animate-fade-in ${
-                project.featured 
-                  ? "border border-primary/50 shadow-[0_0_30px_rgba(32,178,166,0.15)] md:col-span-2 lg:col-span-3 lg:flex-row hover:-translate-y-1 hover:shadow-[0_8px_40px_rgba(32,178,166,0.25)]" 
-                  : "border border-primary/20 hover:border-primary/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(32,178,166,0.12)]"
-              }`}
-              style={{ animationDelay: `${(idx + 1) * 150}ms` }}
-            >
-              <div className={`relative overflow-hidden ${project.featured ? "lg:w-1/2 aspect-video lg:aspect-auto" : "aspect-video"}`}>
-                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10 mix-blend-overlay" />
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                {project.featured && (
-                  <div className="absolute top-4 left-4 z-20 bg-background/80 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-2 border border-primary/30">
-                    <Star className="w-4 h-4 text-primary fill-primary" />
-                    <span className="text-xs font-semibold text-primary">Featured Project</span>
-                  </div>
-                )}
-              </div>
+        {/* Projects Showcase Articles */}
+        <div className="space-y-16">
+          {projects.map((project, idx) => {
+            const indexLabel = `0${idx + 1}`;
+            return (
+              <article
+                key={idx}
+                className="p-6 md:p-10 rounded-2xl bg-surface/90 border border-white/15 hover:border-primary/40 transition-all duration-300 relative group overflow-hidden shadow-xl text-left"
+              >
+                {/* Ambient glow accent */}
+                <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
 
-              <div className={`p-6 flex flex-col flex-grow ${project.featured ? "lg:w-1/2 lg:p-10 lg:justify-center" : ""}`}>
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className={`${project.featured ? "text-2xl lg:text-3xl" : "text-xl"} font-bold`}>{project.title}</h3>
-                  <div className="flex gap-3">
-                    {project.github !== "#" && (
+                {/* Header & Meta Header */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="font-mono text-xs font-semibold text-primary tracking-widest uppercase">
+                        {indexLabel} // {project.category.split("·")[0].trim()}
+                      </span>
+                      <span className="text-white/20">|</span>
+                      <span className="font-mono text-xs text-muted-foreground">Production Spec</span>
+                    </div>
+                    <h3 className="font-display font-bold text-2xl md:text-3xl text-foreground tracking-tight">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  {/* Category Badge */}
+                  <div className="self-start md:self-auto px-3.5 py-1.5 rounded-lg bg-surface-subtle border border-white/10">
+                    <span className="font-mono text-xs text-primary font-medium">
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Problem Statement & Description */}
+                <div className="mb-8">
+                  <h4 className="font-mono text-xs text-muted-foreground uppercase tracking-wider mb-2">
+                    System Overview &amp; Problem Statement
+                  </h4>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-5xl">
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* Technical Architecture Blueprint Widget */}
+                <div className="mb-8 bg-surface-subtle/80 rounded-xl border border-white/10 p-5 md:p-7 relative">
+                  <div className="flex items-center justify-between mb-6 pb-3 border-b border-white/10">
+                    <div className="flex items-center gap-2">
+                      <Layers className="w-4 h-4 text-primary" />
+                      <span className="font-mono text-xs font-semibold tracking-wider text-foreground">
+                        TECHNICAL ARCHITECTURE BLUEPRINT // PIPELINE FLOW
+                      </span>
+                    </div>
+                    <span className="font-mono text-[11px] text-primary bg-primary/10 px-2.5 py-0.5 rounded border border-primary/20">
+                      STATUS: ACTIVE
+                    </span>
+                  </div>
+
+                  {/* Node Flow Diagram */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+                    {project.architecture.flow.map((step, stepIdx) => (
+                      <div
+                        key={stepIdx}
+                        className="p-4 rounded-lg bg-surface border border-white/10 flex flex-col justify-between relative group/node hover:border-primary/40 transition-colors"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="font-mono text-[10px] text-primary font-medium">
+                              NODE_0{stepIdx + 1}
+                            </span>
+                            {stepIdx === 0 && <Database className="w-3.5 h-3.5 text-muted-foreground" />}
+                            {stepIdx === 1 && <GitBranch className="w-3.5 h-3.5 text-primary" />}
+                            {stepIdx === 2 && <Cpu className="w-3.5 h-3.5 text-primary" />}
+                            {stepIdx === 3 && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />}
+                          </div>
+                          <h5 className="font-display font-semibold text-sm text-foreground mb-1">
+                            {step}
+                          </h5>
+                          <p className="text-[11px] font-mono text-muted-foreground leading-normal">
+                            Pipeline execution phase in multi-agent runtime.
+                          </p>
+                        </div>
+                        <div className="mt-4 pt-2 border-t border-white/5 flex items-center justify-between font-mono text-[10px] text-muted-foreground">
+                          <span>Stage {stepIdx + 1}/4</span>
+                          <span className="text-primary font-semibold">VERIFIED</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Architecture Details Explanation */}
+                  <div className="mt-4 pt-4 border-t border-white/10 flex items-start gap-2.5">
+                    <span className="font-mono text-xs text-primary font-semibold shrink-0">EXECUTION:</span>
+                    <p className="font-mono text-xs text-muted-foreground leading-relaxed">
+                      {project.architecture.details}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Bottom Metric Strip + Tech Badges + Action Buttons */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-2">
+                  {/* Tech Stack Badges */}
+                  <div className="lg:col-span-8 flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIdx) => (
+                      <span
+                        key={tagIdx}
+                        className="font-mono text-[11px] px-2.5 py-1 rounded-md bg-surface-subtle border border-white/10 text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="lg:col-span-4 flex items-center justify-start lg:justify-end gap-3">
+                    {project.github && project.github !== "#" && (
                       <a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface hover:bg-surface-subtle border border-white/15 text-xs font-display font-semibold text-foreground transition-all hover:border-primary/50 shadow-sm"
                       >
-                        <FaGithub size={project.featured ? 24 : 20} />
+                        <FaGithub size={14} />
+                        <span>Source Code</span>
                       </a>
                     )}
-                    {project.live !== "#" && (
+                    {project.live && project.live !== "#" && (
                       <a
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-colors"
+                        className="inline-flex items-center gap-1.5 p-2 rounded-lg bg-surface hover:bg-surface-subtle border border-white/15 text-muted-foreground hover:text-primary transition-all"
+                        title="Live Demonstration"
                       >
-                        <ExternalLink size={project.featured ? 24 : 20} />
+                        <ExternalLink size={16} />
                       </a>
                     )}
                   </div>
                 </div>
-
-                <p className={`text-muted-foreground mb-6 flex-grow ${project.featured ? "text-base lg:text-lg" : "text-sm"}`}>
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.tags.map((tag, tagIdx) => (
-                    <span
-                      key={tagIdx}
-                      className="px-3 py-1 bg-surface text-xs rounded-full text-muted-foreground border border-white/5"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

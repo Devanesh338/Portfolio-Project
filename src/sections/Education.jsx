@@ -1,81 +1,100 @@
+import { GraduationCap, Calendar, Layers } from "lucide-react";
+import { educationData as educationList } from "@/data/portfolioData";
+
 export const Education = () => {
-  const education = [
-    {
-      degree: "B.Tech Artificial Intelligence and Data Science",
-      institution: "Rajalakshmi Engineering College, Chennai",
-      date: "Expected 2027",
-      score: "CGPA: 7.81",
-    },
-    {
-      degree: "Jawahar Higher Secondary School [CBSE]",
-      institution: "Year of Passing: 2023",
-      date: "2023",
-      score: "79.4%",
-    },
-  ];
-
   return (
-    <section id="education" className="py-32 relative overflow-hidden">
-      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-highlight/5 rounded-full blur-3xl -translate-y-1/2" />
+    <section id="education" className="py-24 border-t border-white/10 relative overflow-hidden text-left">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 grid-pattern pointer-events-none opacity-30 -z-10" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
-          <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
-            Academic Background
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
-            Education that{" "}
-            <span className="font-serif italic font-normal text-white">
-              shapes the future.
-            </span>
-          </h2>
-
-          <p className="text-muted-foreground animate-fade-in animation-delay-200">
-            My academic journey and foundational knowledge.
-          </p>
+        <div className="flex items-center gap-3 mb-10">
+          <GraduationCap className="w-5 h-5 text-primary" />
+          <h3 className="text-xs font-mono uppercase tracking-widest text-primary font-semibold">
+            02 // Academic Foundations
+          </h3>
+          <div className="flex-grow h-px bg-white/10" />
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          <div className="timeline-glow absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary/70 via-primary/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(32,178,166,0.8)]" />
-
-          {/* Education Items */}
-          <div className="space-y-12">
-            {education.map((edu, idx) => (
-              <div
-                key={idx}
-                className="relative grid md:grid-cols-2 gap-8 animate-fade-in"
-                style={{ animationDelay: `${(idx + 1) * 150}ms` }}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10">
+        <div className="space-y-8">
+          {educationList.map((edu, idx) => (
+            <div
+              key={idx}
+              className="rounded-xl bg-surface border border-white/10 p-6 md:p-8 hover:border-primary/50 transition-all duration-300 shadow-xl"
+            >
+              {/* Header Meta */}
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6 pb-6 border-b border-white/10">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
+                    <span className="px-2.5 py-0.5 rounded text-xs font-mono bg-surface-subtle text-primary border border-white/10 uppercase tracking-wider">
+                      Undergraduate Degree
+                    </span>
+                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
+                      REC · AUTONOMOUS
+                    </span>
+                  </div>
+                  <h4 className="text-xl md:text-2xl font-display font-bold text-foreground">
+                    {edu.degree}
+                  </h4>
+                  <p className="text-sm font-medium text-muted-foreground mt-1">
+                    {edu.institution}
+                  </p>
                 </div>
 
-                {/* Content */}
-                <div
-                  className={`pl-8 md:pl-0 ${
-                    idx % 2 === 0
-                      ? "md:pr-16 md:text-right"
-                      : "md:col-start-2 md:pl-16"
-                  }`}
-                >
-                  <div className="glass p-6 rounded-3xl border border-primary/20 hover:border-primary/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(32,178,166,0.12)] transition-all duration-500">
-                    <span className="text-sm text-primary font-medium">
-                      {edu.date}
-                    </span>
-                    <h3 className="text-xl font-semibold mt-2">{edu.degree}</h3>
-                    <p className="text-muted-foreground mt-1">{edu.institution}</p>
-                    <div className={`flex flex-wrap gap-2 mt-4 ${idx % 2 === 0 ? "md:justify-end" : ""}`}>
-                      <span className="px-3 py-1 bg-surface text-sm rounded-full text-foreground font-medium border border-white/5">
-                        {edu.score}
-                      </span>
-                    </div>
-                  </div>
+                <div className="flex md:flex-col md:items-end justify-between items-center text-xs font-mono text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-subtle border border-white/10 text-foreground">
+                    <Calendar className="w-3.5 h-3.5 text-primary" />
+                    {edu.date}
+                  </span>
+                  <span className="mt-2 text-primary font-semibold text-xs tracking-wider">
+                    {edu.score} / 10
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Coursework & Academic Rigor */}
+              <div className="mb-8">
+                <h5 className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3 font-semibold">
+                  Coursework &amp; Academic Rigor
+                </h5>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
+                  Neuro-symbolic AI systems, Machine Learning foundations, Algorithmic optimization, Relational &amp; Distributed Databases.
+                </p>
+
+                <div className="p-4 rounded-lg bg-surface-subtle border border-white/10">
+                  <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground mb-2">
+                    <Layers className="w-3.5 h-3.5 text-primary" />
+                    <span className="font-semibold text-foreground uppercase">Core Concepts &amp; System Architecture</span>
+                  </div>
+                  <p className="text-xs font-mono text-muted-foreground leading-normal">
+                    Focused study in state estimation, vector databases, statistical modeling, algorithmic complexity analysis, and scalable database query evaluation.
+                  </p>
+                </div>
+              </div>
+
+              {/* Core Competencies */}
+              <div>
+                <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground block mb-3 font-semibold">
+                  Core Competencies
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-md bg-surface-subtle border border-white/10 text-xs text-foreground font-mono">
+                    Machine Learning
+                  </span>
+                  <span className="px-3 py-1 rounded-md bg-surface-subtle border border-white/10 text-xs text-foreground font-mono">
+                    Optimization Solvers
+                  </span>
+                  <span className="px-3 py-1 rounded-md bg-surface-subtle border border-white/10 text-xs text-foreground font-mono">
+                    Data Structures
+                  </span>
+                  <span className="px-3 py-1 rounded-md bg-surface-subtle border border-white/10 text-xs text-foreground font-mono">
+                    Relational SQL
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
