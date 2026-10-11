@@ -58,6 +58,7 @@ export const Hero = () => {
 
               <a
                 href={heroData.resumeLink}
+                download="Devanesh_Resume_New.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-surface border border-white/15 text-foreground font-display font-medium text-sm hover:bg-surface-subtle hover:border-primary/40 transition-all hover:-translate-y-0.5"

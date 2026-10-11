@@ -254,6 +254,7 @@ export const Contact = () => {
               <div className="mt-4 pt-3 border-t border-white/10 flex items-center">
                 <a
                   href={heroData.resumeLink}
+                  download="Devanesh_Resume_New.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-primary text-primary-foreground font-display text-xs font-semibold hover:bg-primary/90 transition-colors shadow-sm"

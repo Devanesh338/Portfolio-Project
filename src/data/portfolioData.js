@@ -13,7 +13,7 @@ export const heroData = {
   description: "Building Intelligent AI Systems That Solve Real-World Problems.",
   longDescription: "I'm a final-year Artificial Intelligence and Data Science student focused on building agentic AI systems, retrieval-augmented generation pipelines, and optimization-driven applications using modern AI engineering tools.",
   techStack: ['Python', 'LangGraph', 'RAG', 'FastAPI', 'MCP', 'PostgreSQL', 'Machine Learning', 'MILP'],
-  resumeLink: "https://drive.google.com/file/d/1UlPpHLlaVroxzGodQUptUEwbXRfFKN8i/view?usp=drive_link",
+  resumeLink: "/Devanesh_Resume_New.pdf",
   githubLink: "https://github.com/Devanesh338",
   linkedinLink: "https://www.linkedin.com/in/devanesh-s-m-23a162288/",
   email: "devaneshmanikandan@gmail.com"
@@ -131,7 +131,7 @@ export const educationData = [
     degree: "B.Tech — Artificial Intelligence and Data Science",
     institution: "Rajalakshmi Engineering College",
     date: "Expected 2027",
-    score: "CGPA: 7.81",
+    score: "CGPA: 7.89",
   }
 ];
 
