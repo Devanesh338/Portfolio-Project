@@ -192,8 +192,7 @@ export const Contact = () => {
                   Active Commits
                 </span>
               </div>
-              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono">
-                <span className="text-muted-foreground">Autonomous Systems / Multi-agent repos</span>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-end text-xs font-mono">
                 <a
                   href={heroData.githubLink}
                   target="_blank"
@@ -224,8 +223,7 @@ export const Contact = () => {
                 </div>
                 <ShieldCheck className="w-5 h-5 text-primary" />
               </div>
-              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono">
-                <span className="text-muted-foreground">Open to inMail &amp; Direct Connections</span>
+              <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-end text-xs font-mono">
                 <a
                   href={heroData.linkedinLink}
                   target="_blank"
@@ -444,17 +442,12 @@ export const Contact = () => {
 
                 {/* Message Payload */}
                 <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <label
-                      htmlFor="message-payload"
-                      className="block text-xs font-mono text-muted-foreground uppercase tracking-wider"
-                    >
-                      06 // Message Payload / Specifications *
-                    </label>
-                    <span className="text-[11px] font-mono text-muted-foreground">
-                      Destination: {emailRecipient}
-                    </span>
-                  </div>
+                  <label
+                    htmlFor="message-payload"
+                    className="block text-xs font-mono text-muted-foreground uppercase tracking-wider mb-1.5"
+                  >
+                    06 // Message Payload / Specifications *
+                  </label>
                   <textarea
                     id="message-payload"
                     rows={5}
