@@ -4,8 +4,6 @@ import {
   Copy, 
   Check, 
   ExternalLink, 
-  Send, 
-  Lock, 
   FileText, 
   Download, 
   ArrowUpRight,
@@ -460,31 +458,15 @@ export const Contact = () => {
                 </div>
 
                 {/* Action Transmit Buttons */}
-                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => handleDispatch("gmail")}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-display font-semibold text-sm tracking-wide transition-all duration-200 active:scale-95 shadow-md cursor-pointer"
-                    >
-                      <span>Send with Gmail</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => handleDispatch("mailto")}
-                      className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-surface-subtle hover:bg-white/10 border border-white/10 text-foreground font-display font-semibold text-sm tracking-wide transition-all duration-200 active:scale-95 cursor-pointer"
-                    >
-                      <span>Send via Mail App</span>
-                      <Send className="w-4 h-4 text-primary" />
-                    </button>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-[11px] font-mono text-muted-foreground">
-                    <Lock className="w-3.5 h-3.5 text-primary" />
-                    <span>Direct to {emailRecipient}</span>
-                  </div>
+                <div className="pt-2 flex items-center">
+                  <button
+                    type="button"
+                    onClick={() => handleDispatch("gmail")}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-primary-foreground font-display font-semibold text-sm tracking-wide transition-all duration-200 active:scale-95 shadow-md cursor-pointer"
+                  >
+                    <span>Send with Gmail</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </button>
                 </div>
               </form>
 
