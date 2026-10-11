@@ -1,7 +1,16 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CheckCircle2 } from "lucide-react";
 import { skillCategoriesData as skillCategories } from "@/data/portfolioData";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export const Skills = () => {
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const gridRef = useRef(null);
+
   // Enriched domain metadata mapping strictly matching Stitch Screen 3
   const domainMetadata = [
     {
@@ -55,14 +64,90 @@ export const Skills = () => {
     },
   ];
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+    const grid = gridRef.current;
+    if (!section || !header || !grid) return;
+
+    const ctx = gsap.context(() => {
+      // 1. Header elements staggered reveal
+      gsap.fromTo(
+        header.children,
+        { opacity: 0, y: 35 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: header,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // 2. Bento cards staggered cascade entrance
+      const cards = grid.querySelectorAll(".skill-card");
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 55, scale: 0.96 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.75,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: grid,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // 3. Subtle parallax scroll depth across alternating columns
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+        gsap.to(".skill-card-parallax", {
+          y: -25,
+          ease: "none",
+          scrollTrigger: {
+            trigger: grid,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.2,
+          },
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const handleCardMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+    e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+  };
+
   return (
-    <section id="skills" className="py-24 border-t border-white/10 relative overflow-hidden text-left">
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="py-24 border-t border-white/10 relative overflow-hidden text-left"
+    >
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 grid-pattern pointer-events-none opacity-30 -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="max-w-4xl mb-12">
+        <div ref={headerRef} className="max-w-4xl mb-12">
           {/* Status Badge */}
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface border border-white/10 text-xs font-mono tracking-widest text-primary mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-primary inline-block animate-pulse" />
@@ -73,13 +158,15 @@ export const Skills = () => {
 
           {/* Main Title */}
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight mb-5">
-            Specialized Capabilities Across the Modern AI Stack
+            Specialized Capabilities Across the <span className="text-primary">Modern AI Stack</span>
           </h2>
-
         </div>
 
         {/* Skill Domain Architecture: Asymmetric Bento / Multi-column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+        >
           {skillCategories.map((category, idx) => {
             const meta = domainMetadata[idx] || {
               code: `0${idx + 1} // DOMAIN`,
@@ -90,13 +177,24 @@ export const Skills = () => {
             };
 
             const IconComponent = category.icon;
+            const isParallax = idx % 2 !== 0;
 
             return (
               <div
                 key={idx}
-                className={`${meta.colSpan} group relative p-7 rounded-xl bg-surface border border-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-xl hover:-translate-y-0.5`}
+                onMouseMove={handleCardMouseMove}
+                className={`skill-card ${isParallax ? "skill-card-parallax" : ""} ${meta.colSpan} group relative p-7 rounded-2xl bg-surface/90 backdrop-blur-md border border-white/10 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between shadow-lg hover:shadow-2xl hover:-translate-y-1 overflow-hidden`}
               >
-                <div>
+                {/* Interactive cursor spotlight glow */}
+                <div
+                  className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"
+                  style={{
+                    background:
+                      "radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(32, 178, 166, 0.12), transparent 45%)",
+                  }}
+                />
+
+                <div className="relative z-10">
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-mono text-xs tracking-widest text-primary font-semibold">
                       {meta.code}
@@ -114,18 +212,18 @@ export const Skills = () => {
                     {meta.focus}
                   </div>
 
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 font-body">
                     {meta.description}
                   </p>
                 </div>
 
-                <div>
+                <div className="relative z-10">
                   {/* Skill Badges */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {category.skills.map((skill, sIdx) => (
                       <span
                         key={sIdx}
-                        className="font-mono text-xs font-medium px-2.5 py-1 rounded bg-surface-subtle border border-white/10 text-foreground hover:border-primary/40 transition-colors"
+                        className="font-mono text-xs font-medium px-2.5 py-1 rounded-md bg-surface-subtle border border-white/10 text-foreground hover:border-primary/40 hover:text-primary transition-colors"
                       >
                         {skill}
                       </span>
