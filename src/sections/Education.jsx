@@ -1,4 +1,4 @@
-import { GraduationCap, Calendar, Layers } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { educationData as educationList } from "@/data/portfolioData";
 
 export const Education = () => {
@@ -9,12 +9,13 @@ export const Education = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-10">
-          <GraduationCap className="w-5 h-5 text-primary" />
-          <h3 className="text-xs font-mono uppercase tracking-widest text-primary font-semibold">
-            02 // Academic Foundations
-          </h3>
-          <div className="flex-grow h-px bg-white/10" />
+        <div className="mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
+            Education
+          </h2>
+          <p className="mt-2 text-sm sm:text-base text-muted-foreground font-body">
+            Academic background and specialized coursework in artificial intelligence.
+          </p>
         </div>
 
         <div className="space-y-8">
@@ -24,14 +25,11 @@ export const Education = () => {
               className="rounded-xl bg-surface border border-white/10 p-6 md:p-8 hover:border-primary/50 transition-all duration-300 shadow-xl"
             >
               {/* Header Meta */}
-              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6 pb-6 border-b border-white/10">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <span className="px-2.5 py-0.5 rounded text-xs font-mono bg-surface-subtle text-primary border border-white/10 uppercase tracking-wider">
                       Undergraduate Degree
-                    </span>
-                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
-                      REC · AUTONOMOUS
                     </span>
                   </div>
                   <h4 className="text-xl md:text-2xl font-display font-bold text-foreground">
@@ -53,44 +51,26 @@ export const Education = () => {
                 </div>
               </div>
 
-              {/* Coursework & Academic Rigor */}
-              <div className="mb-8">
-                <h5 className="text-xs font-mono uppercase tracking-wider text-muted-foreground mb-3 font-semibold">
-                  Coursework &amp; Academic Rigor
-                </h5>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
-                  Neuro-symbolic AI systems, Machine Learning foundations, Algorithmic optimization, Relational &amp; Distributed Databases.
-                </p>
-
-                <div className="p-4 rounded-lg bg-surface-subtle border border-white/10">
-                  <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground mb-2">
-                    <Layers className="w-3.5 h-3.5 text-primary" />
-                    <span className="font-semibold text-foreground uppercase">Core Concepts &amp; System Architecture</span>
-                  </div>
-                  <p className="text-xs font-mono text-muted-foreground leading-normal">
-                    Focused study in state estimation, vector databases, statistical modeling, algorithmic complexity analysis, and scalable database query evaluation.
-                  </p>
-                </div>
-              </div>
-
-              {/* Core Competencies */}
-              <div>
+              {/* Core Specializations & Focus Disciplines */}
+              <div className="mt-6 pt-6 border-t border-white/10">
                 <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground block mb-3 font-semibold">
-                  Core Competencies
+                  Core Disciplines &amp; Specializations
                 </span>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 rounded-md bg-surface-subtle border border-white/10 text-xs text-foreground font-mono">
-                    Machine Learning
-                  </span>
-                  <span className="px-3 py-1 rounded-md bg-surface-subtle border border-white/10 text-xs text-foreground font-mono">
-                    Optimization Solvers
-                  </span>
-                  <span className="px-3 py-1 rounded-md bg-surface-subtle border border-white/10 text-xs text-foreground font-mono">
-                    Data Structures
-                  </span>
-                  <span className="px-3 py-1 rounded-md bg-surface-subtle border border-white/10 text-xs text-foreground font-mono">
-                    Relational SQL
-                  </span>
+                  {[
+                    "Machine Learning",
+                    "Deep Learning",
+                    "Data Science",
+                    "Agent AI",
+                  ].map((field, fIdx) => (
+                    <span
+                      key={fIdx}
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-subtle border border-white/10 text-xs font-mono text-foreground hover:border-primary/40 hover:text-primary transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      {field}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -100,3 +80,4 @@ export const Education = () => {
     </section>
   );
 };
+

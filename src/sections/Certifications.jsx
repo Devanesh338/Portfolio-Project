@@ -25,12 +25,13 @@ export const Certifications = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="flex items-center gap-3 mb-10">
-          <ShieldCheck className="w-5 h-5 text-primary" />
-          <h3 className="text-xs font-mono uppercase tracking-widest text-primary font-semibold">
-            03 // Verified Credentials &amp; Certifications
-          </h3>
-          <div className="flex-grow h-px bg-white/10" />
+        <div className="mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
+            Certifications
+          </h2>
+          <p className="mt-2 text-sm sm:text-base text-muted-foreground font-body">
+            Industry-recognized credentials and practical simulations.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -49,15 +50,9 @@ export const Certifications = () => {
                 className="rounded-xl bg-surface border border-white/10 p-6 md:p-8 flex flex-col justify-between hover:border-primary/50 transition-all duration-300 shadow-xl"
               >
                 <div>
-                  <div className="flex items-start justify-between gap-4 mb-4">
+                  <div className="mb-4">
                     <div className="w-10 h-10 rounded-lg bg-surface-subtle border border-white/10 flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-[11px] font-mono tracking-wider font-semibold bg-surface-subtle text-primary border border-white/10">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(32,178,166,0.8)]" />
-                        {details.status}
-                      </span>
                     </div>
                   </div>
 
