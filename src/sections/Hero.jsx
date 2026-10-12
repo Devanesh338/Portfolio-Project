@@ -26,14 +26,32 @@ export const Hero = () => {
               <span className="text-muted-foreground">Open to AI/ML internships & engineering opportunities</span>
             </div>
 
-            {/* Headline & Subtitle */}
-            <div className="space-y-3">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold tracking-tight text-foreground">
-                {heroData.name}
-              </h1>
-              <p className="font-mono text-sm sm:text-base text-primary tracking-wide uppercase font-medium">
-                {heroData.titles[0]} · {heroData.titles[1]} · {heroData.titles[2]}
-              </p>
+            {/* Headline & Subtitle with Mobile-Aligned Portrait */}
+            <div className="flex items-center justify-between gap-4">
+              <div className="space-y-2 sm:space-y-3 flex-1 min-w-0">
+                <h1 className="text-3xl sm:text-5xl lg:text-7xl font-display font-bold tracking-tight text-foreground">
+                  {heroData.name}
+                </h1>
+                <p className="font-mono text-xs sm:text-sm lg:text-base text-primary tracking-wide uppercase font-medium leading-relaxed">
+                  {heroData.titles[0]} · {heroData.titles[1]}
+                  <span className="hidden sm:inline"> · {heroData.titles[2]}</span>
+                </p>
+              </div>
+
+              {/* Mobile-only Aligned Portrait (Side-by-side with Name) */}
+              <div className="lg:hidden shrink-0">
+                <div className="relative w-24 h-32 sm:w-32 sm:h-40 rounded-2xl overflow-hidden border border-white/20 bg-surface shadow-2xl">
+                  <img
+                    src={profileImg}
+                    alt={heroData.name}
+                    className="w-full h-full object-cover object-top filter contrast-[1.02]"
+                    onError={(e) => {
+                      e.target.src = "/profile.png";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
             </div>
 
             {/* Core Thesis / Mission Statement */}
@@ -117,8 +135,8 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Prominent Hero Portrait Showcase Card & Telemetry */}
-          <div className="lg:col-span-5 flex flex-col space-y-4 max-w-md mx-auto lg:max-w-none w-full">
+          {/* Right Column: Prominent Hero Portrait Showcase Card & Telemetry (Desktop Only) */}
+          <div className="hidden lg:flex lg:col-span-5 flex-col space-y-4 max-w-md mx-auto lg:max-w-none w-full">
             <div className="relative rounded-2xl bg-surface border border-white/15 overflow-hidden shadow-2xl group transition-all">
               {/* Ambient Teal Rim Glow */}
               <div className="absolute -top-16 -right-16 w-60 h-60 bg-primary/15 rounded-full blur-3xl pointer-events-none" />
