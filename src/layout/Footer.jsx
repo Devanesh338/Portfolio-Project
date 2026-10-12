@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
           <span className="font-display font-bold text-sm text-foreground flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-primary" />
-            DS · Devanesh S M
+            Devanesh S M
           </span>
           <span className="hidden sm:inline text-white/20">•</span>
           <p className="font-mono text-xs text-muted-foreground">
